@@ -119,6 +119,10 @@ SELECT L.* FROM Logement L
 LEFT JOIN Activite A ON L.code = A.codeLogement 
 WHERE A.codeActivite IS NULL;
 
+-- 30. Afficher les voyageurs qui n’ont jamais séjourné dans aucun logement
+SELECT * FROM Voyageur 
+WHERE idVoyageur NOT IN (SELECT idVoyageur FROM Sejour);
+
 -- 31. Afficher tous les logements et leur codeActivite (même si NULL)
 SELECT L.nom AS logement, A.codeActivite
 FROM Logement L

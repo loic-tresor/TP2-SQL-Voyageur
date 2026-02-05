@@ -119,6 +119,11 @@ SELECT L.* FROM Logement L
 LEFT JOIN Activite A ON L.code = A.codeLogement 
 WHERE A.codeActivite IS NULL;
 
+-- 31. Afficher tous les logements et leur codeActivite (même si NULL)
+SELECT L.nom AS logement, A.codeActivite
+FROM Logement L
+LEFT JOIN Activite A ON L.code = A.codeLogement;
+
 -- V. CONDITIONS ET FILTRES
 -- 32. Voyageurs (logement capacité > 30)
 SELECT DISTINCT V.* FROM Voyageur V 
